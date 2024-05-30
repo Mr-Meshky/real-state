@@ -1,18 +1,12 @@
-import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { ReactNode } from "react";
 
-import { DashboardSidebar } from "@/components/layout/DashboardSidebar";
 import AdminPage from "@/components/template/AdminPage";
 import Profile from "@/models/Profile";
 import User, { UserType } from "@/models/User";
 import connectDB from "@/utils/connectDB";
 import { SessionType } from "@/utils/types";
-
-export const metadata: Metadata = {
-  title: "پنل ادمین خانه پیدا",
-};
 
 async function Admin(): Promise<ReactNode> {
   await connectDB();
@@ -25,11 +19,7 @@ async function Admin(): Promise<ReactNode> {
 
   const profiles = await Profile.find({ published: false });
 
-  return (
-    <DashboardSidebar role={user.role} email={user.email}>
-      <AdminPage profiles={profiles} />
-    </DashboardSidebar>
-  );
+  return <AdminPage profiles={profiles} />;
 }
 
 export default Admin;

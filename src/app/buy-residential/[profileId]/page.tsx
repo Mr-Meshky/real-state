@@ -13,13 +13,16 @@ async function ProfileDetails({
   params: { profileId },
 }: ProfileDetailsProps): Promise<ReactNode> {
   await connectDB();
-  const profile = await Profile.findOne({ _id: profileId });
-  if (!profile)
+  let profile;
+  try {
+    profile = await Profile.findOne({ _id: profileId });
+  } catch (error) {
     return (
       <h3 className="text-danger text-2xl font-semibold text-center mt-5">
         مشکلی پیش آمده است و یا آگهی حذف شده‌ است
       </h3>
     );
+  }
 
   return <DetailsPage data={profile} />;
 }
@@ -30,17 +33,18 @@ export const generateMetadata = async ({
   params: { profileId },
 }: ProfileDetailsProps): Promise<Metadata> => {
   await connectDB();
-  const profile = await Profile.findOne({ _id: profileId });
-
-  if (profile) {
-    return {
-      title: profile.title,
-      description: profile.description,
-      authors: { name: profile.realState },
-    } as Metadata;
-  } else {
+  let profile;
+  try {
+    profile = await Profile.findOne({ _id: profileId });
+  } catch (error) {
     return {
       title: "خانه پیدا",
     } as Metadata;
   }
+
+  return {
+    title: profile.title,
+    description: profile.description,
+    authors: { name: profile.realState },
+  } as Metadata;
 };

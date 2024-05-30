@@ -41,12 +41,20 @@ export const DashboardSidebar = async ({
           ثبت آگهی
         </Link>
         {role === "ADMIN" ? (
-          <Link
-            href={"/admin"}
-            className="my-1 text-normal w-full hover:text-gray-500"
-          >
-            در انتظار تایید
-          </Link>
+          <>
+            <Link
+              href={"/admin"}
+              className="my-1 text-normal w-full hover:text-gray-500"
+            >
+              در انتظار تایید
+            </Link>
+            <Link
+              href={"/admin/users"}
+              className="my-1 text-normal w-full hover:text-gray-500"
+            >
+              کاربران
+            </Link>
+          </>
         ) : null}
         <LogoutButton />
       </div>
