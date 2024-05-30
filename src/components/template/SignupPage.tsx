@@ -31,19 +31,21 @@ function SignupPage(): ReactNode {
 
   const signupHandler = async ({ email, password }: Inputs): Promise<void> => {
     setLoading(true);
-    const {
-      data,
-      status,
-    }: { data: { error: string; status: string }; status: number } =
-      await axios.post("/api/auth/signup", {
-        email,
-        password,
-      });
-    setLoading(false);
-    if (status === 201) {
-      router.push("/signin");
-    } else {
-      toast.error(data.error);
+    try {
+      const { status }: { status: number } = await axios.post(
+        "/api/auth/signup",
+        {
+          email,
+          password,
+        }
+      );
+      setLoading(false);
+      if (status === 201) {
+        router.push("/signin");
+      }
+    } catch (err: any) {
+      setLoading(false);
+      toast.error(err.response.data.error);
     }
   };
 

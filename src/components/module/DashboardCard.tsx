@@ -23,14 +23,13 @@ function DashboardCard({ data }: DashboardCardProps) {
   };
 
   const deleteHandler = async (): Promise<void> => {
-    const result: { data: { error?: string; message: string } } =
-      await axios.delete(`/api/profile/delete/${data._id}`);
-
-    if (result.data.error) {
-      toast.error(result.data.error);
-    } else {
+    try {
+      const result: { data: { error?: string; message: string } } =
+        await axios.delete(`/api/profile/delete/${data._id}`);
       toast.success(result.data.message);
       router.refresh();
+    } catch (err: any) {
+      toast.error(err.response.data.error);
     }
   };
 

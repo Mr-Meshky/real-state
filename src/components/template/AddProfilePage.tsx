@@ -48,30 +48,32 @@ function AddProfilePage({ data }: { data?: AddProfilePageProps }) {
   const router: AppRouterInstance = useRouter();
 
   const submitHandler = async (): Promise<void> => {
-    setLoading(true);
-    const { data }: { data: { error?: string; message: string } } =
-      await axios.post("/api/profile", profileData);
-    setLoading(false);
-    if (data.error) {
-      toast.error(data.error);
-    } else {
+    try {
+      setLoading(true);
+      const { data }: { data: { error?: string; message: string } } =
+        await axios.post("/api/profile", profileData);
+      setLoading(false);
       toast.success(data.message);
       router.refresh();
       router.push("/dashboard/my-profiles");
+    } catch (err: any) {
+      setLoading(false);
+      toast.error(err.response.data.error);
     }
   };
 
   const editHandler = async () => {
     setLoading(true);
-    const { data }: { data: { error?: string; message: string } } =
-      await axios.patch("/api/profile", profileData);
-    setLoading(false);
-    if (data.error) {
-      toast.error(data.error);
-    } else {
+    try {
+      const { data }: { data: { error?: string; message: string } } =
+        await axios.patch("/api/profile", profileData);
+      setLoading(false);
       toast.success(data.message);
       router.refresh();
       router.push("/dashboard/my-profiles");
+    } catch (err: any) {
+      setLoading(false);
+      toast.error(err.response.data.error);
     }
   };
 

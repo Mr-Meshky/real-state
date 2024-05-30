@@ -15,13 +15,14 @@ function AdminCard({
   const router = useRouter();
 
   const publishHandler = async () => {
-    const { data }: { data: { message: string } } = await axios.patch(
-      `/api/profile/publish/${_id}`
-    );
-
-    if (data.message) {
+    try {
+      const { data }: { data: { message: string } } = await axios.patch(
+        `/api/profile/publish/${_id}`
+      );
       toast.success(data.message);
       router.push("/buy-residential");
+    } catch (err: any) {
+      toast.error(err.response.data.error);
     }
   };
 
