@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
-function Layout({ children }: { children: ReactNode }) {
+export const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Header />
@@ -11,6 +11,4 @@ function Layout({ children }: { children: ReactNode }) {
       <Footer />
     </>
   );
-}
-
-export default Layout;
+};

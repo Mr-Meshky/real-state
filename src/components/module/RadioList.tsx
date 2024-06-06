@@ -1,11 +1,8 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent } from "react";
 
-interface RadioListProps {
-  profileData: any;
-  setProfileData: Dispatch<SetStateAction<any>>;
-}
+import { RadioListProps } from "./type";
 
-function RadioList({ profileData, setProfileData }: RadioListProps) {
+export const RadioList = ({ profileData, setProfileData }: RadioListProps) => {
   const { category } = profileData;
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -64,6 +61,4 @@ function RadioList({ profileData, setProfileData }: RadioListProps) {
       </div>
     </div>
   );
-}
-
-export default RadioList;
+};

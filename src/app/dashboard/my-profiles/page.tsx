@@ -1,11 +1,11 @@
 import { getServerSession } from "next-auth";
 
-import MyProfilesPage from "@/components/template/MyProfilesPage";
+import { MyProfilesPage } from "@/components/template/MyProfilesPage";
 import User from "@/models/User";
 import connectDB from "@/utils/connectDB";
 import { SessionType } from "@/utils/types";
 
-async function Myprofiles() {
+export default async function Myprofiles() {
   await connectDB();
   const session: SessionType = await getServerSession();
 
@@ -22,5 +22,3 @@ async function Myprofiles() {
   ]);
   return <MyProfilesPage profiles={user.profiles} />;
 }
-
-export default Myprofiles;

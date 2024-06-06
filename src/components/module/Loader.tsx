@@ -1,6 +1,6 @@
 import { ThreeDots } from "react-loader-spinner";
 
-function Loader() {
+export const Loader = () => {
   return (
     <ThreeDots
       color="#304ffe"
@@ -10,6 +10,4 @@ function Loader() {
       wrapperStyle={{ margin: "auto" }}
     />
   );
-}
-
-export default Loader;
+};

@@ -6,26 +6,15 @@ import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 
-import CustomDatePicker from "@/components/module/CustomDatePicker";
-import Loader from "@/components/module/Loader";
-import RadioList from "@/components/module/RadioList";
-import TextInput from "@/components/module/TextInput";
-import TextList from "@/components/module/TextList";
+import { CustomDatePicker } from "@/components/module/CustomDatePicker";
+import { Loader } from "@/components/module/Loader";
+import { RadioList } from "@/components/module/RadioList";
+import { TextInput } from "@/components/module/TextInput";
+import { TextList } from "@/components/module/TextList";
 
-export interface AddProfilePageProps {
-  title: string;
-  description: string;
-  location: string;
-  phone: string;
-  price: string;
-  realState: string;
-  constructionDate: Date;
-  category: string;
-  rules: [];
-  amenities: [];
-}
+import { AddProfilePageProps } from "./type";
 
-function AddProfilePage({ data }: { data?: AddProfilePageProps }) {
+export const AddProfilePage = ({ data }: { data?: AddProfilePageProps }) => {
   const [profileData, setProfileData] = useState({
     title: "",
     description: "",
@@ -156,6 +145,4 @@ function AddProfilePage({ data }: { data?: AddProfilePageProps }) {
       )}
     </div>
   );
-}
-
-export default AddProfilePage;
+};

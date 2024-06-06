@@ -8,12 +8,8 @@ import { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast, Toaster } from "react-hot-toast";
 
-import Loader from "../module/Loader";
-
-interface Inputs {
-  email: string;
-  password: string;
-}
+import { Loader } from "../module/Loader";
+import { Inputs } from "./type";
 
 export const SigninPage = (): ReactNode => {
   const [loading, setLoading]: [boolean, Dispatch<SetStateAction<boolean>>] =

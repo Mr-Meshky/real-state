@@ -1,14 +1,9 @@
 import Link from "next/link";
-import { AwaitedReactNode, ReactNode } from "react";
+import { AwaitedReactNode } from "react";
 import { CgProfile } from "react-icons/cg";
 
 import { LogoutButton } from "../module/LogoutButton";
-
-interface DashboardSidebarProps {
-  children: ReactNode;
-  email: string;
-  role: "ADMIN" | "USER";
-}
+import { DashboardSidebarProps } from "./type";
 
 export const DashboardSidebar = async ({
   children,

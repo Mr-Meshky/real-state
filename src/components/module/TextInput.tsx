@@ -1,23 +1,16 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent } from "react";
 
-import { ProfileType } from "@/models/Profile";
 import { persianToEnglish } from "@/utils/replaceNumber";
 
-interface TextInputProps {
-  title: string;
-  name: keyof ProfileType;
-  profileData: any;
-  setProfileData: Dispatch<SetStateAction<any>>;
-  textarea?: boolean;
-}
+import { TextInputProps } from "./type";
 
-function TextInput({
+export const TextInput = ({
   title,
   name,
   profileData,
   setProfileData,
   textarea = false,
-}: TextInputProps) {
+}: TextInputProps) => {
   const changeHandler = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
   ) => {
@@ -46,6 +39,4 @@ function TextInput({
       )}
     </div>
   );
-}
-
-export default TextInput;
+};

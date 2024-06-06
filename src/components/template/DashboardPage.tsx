@@ -1,8 +1,6 @@
-interface DashboardPageProps {
-  createdAt: Date;
-}
+import { DashboardPageProps } from "./type";
 
-function DashboardPage({ createdAt }: DashboardPageProps) {
+export const DashboardPage = ({ createdAt }: DashboardPageProps) => {
   return (
     <div>
       <h3 className="text-primary font-normal text-2xl mb-5">سلام 👋</h3>
@@ -17,6 +15,4 @@ function DashboardPage({ createdAt }: DashboardPageProps) {
       </div>
     </div>
   );
-}
-
-export default DashboardPage;
+};

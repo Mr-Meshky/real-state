@@ -1,7 +1,7 @@
-import AdminCard from "@/components/module/AdminCard";
+import { AdminCard } from "@/components/module/AdminCard";
 import { ProfileType } from "@/models/Profile";
 
-function AdminPage({ profiles }: { profiles: ProfileType[] }) {
+export const AdminPage = ({ profiles }: { profiles: ProfileType[] }) => {
   return (
     <div>
       {profiles.length ? null : (
@@ -14,6 +14,4 @@ function AdminPage({ profiles }: { profiles: ProfileType[] }) {
       ))}
     </div>
   );
-}
-
-export default AdminPage;
+};

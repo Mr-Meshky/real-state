@@ -1,11 +1,8 @@
-import DashboardCard from "@/components/module/DashboardCard";
-import { ProfileType } from "@/models/Profile";
+import { DashboardCard } from "@/components/module/DashboardCard";
 
-export interface MyProfilesPageProps {
-  profiles: ProfileType[];
-}
+import { MyProfilesPageProps } from "./type";
 
-function MyProfilesPage({ profiles }: MyProfilesPageProps) {
+export const MyProfilesPage = ({ profiles }: MyProfilesPageProps) => {
   return (
     <div>
       {profiles.length ? null : (
@@ -18,6 +15,4 @@ function MyProfilesPage({ profiles }: MyProfilesPageProps) {
       ))}
     </div>
   );
-}
-
-export default MyProfilesPage;
+};

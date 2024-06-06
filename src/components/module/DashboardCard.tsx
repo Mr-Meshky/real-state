@@ -1,21 +1,17 @@
 "use client";
 
 import axios from "axios";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
 import { toast, Toaster } from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 
 import { Card } from "@/components/module/Card";
-import { ProfileType } from "@/models/Profile";
 
-export interface DashboardCardProps {
-  data: ProfileType;
-}
+import { DashboardCardProps } from "./type";
 
-function DashboardCard({ data }: DashboardCardProps) {
-  const router: AppRouterInstance = useRouter();
+export const DashboardCard = ({ data }: DashboardCardProps) => {
+  const router = useRouter();
 
   const editHandler = (): void => {
     router.refresh();
@@ -55,6 +51,4 @@ function DashboardCard({ data }: DashboardCardProps) {
       <Toaster />
     </div>
   );
-}
-
-export default DashboardCard;
+};

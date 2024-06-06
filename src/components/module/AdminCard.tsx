@@ -7,11 +7,11 @@ import { toast, Toaster } from "react-hot-toast";
 import { ProfileType } from "@/models/Profile";
 import { sp } from "@/utils/replaceNumber";
 
-function AdminCard({
+export const AdminCard = ({
   data: { _id, title, description, location, price },
 }: {
   data: ProfileType;
-}) {
+}) => {
   const router = useRouter();
 
   const publishHandler = async () => {
@@ -47,6 +47,4 @@ function AdminCard({
       <Toaster />
     </div>
   );
-}
-
-export default AdminCard;
+};

@@ -1,17 +1,13 @@
-import { Dispatch } from "react";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import DatePicker from "react-multi-date-picker";
 
-interface CustomDatePickerProps {
-  profileData: any;
-  setProfileData: Dispatch<any>;
-}
+import { CustomDatePickerProps } from "./type";
 
-function CustomDatePicker({
+export const CustomDatePicker = ({
   profileData,
   setProfileData,
-}: CustomDatePickerProps) {
+}: CustomDatePickerProps) => {
   const changeHandler = (e: any): void => {
     const date: Date = new Date(e);
     setProfileData({ ...profileData, constructionDate: date });
@@ -30,6 +26,4 @@ function CustomDatePicker({
       />
     </div>
   );
-}
-
-export default CustomDatePicker;
+};

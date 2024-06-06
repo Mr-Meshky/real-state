@@ -1,12 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-interface CategoryCardProps {
-  name: string;
-  title: string;
-}
+import { CategoryCardProps } from "./type";
 
-function CategoryCard({ name, title }: CategoryCardProps) {
+export const CategoryCard = ({ name, title }: CategoryCardProps) => {
   return (
     <div className="shadow-[#304ffe4a_0px_4px_15px] border-2 border-primary rounded-2xl overflow-hidden p-2.5 transition duration-100 my-2.5 hover:-rotate-6">
       <Link href={`/buy-residential?category=${name}`}>
@@ -24,6 +21,4 @@ function CategoryCard({ name, title }: CategoryCardProps) {
       </Link>
     </div>
   );
-}
-
-export default CategoryCard;
+};

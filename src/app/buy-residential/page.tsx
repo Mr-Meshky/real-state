@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 
-import BuyResidentialsPage from "@/components/template/BuyResidentialsPage";
+import { BuyResidentialsPage } from "@/components/template/BuyResidentialsPage";
 import { CategoriesType } from "@/constants/strings";
 import Profile from "@/models/Profile";
 import connectDB from "@/utils/connectDB";
 
-async function BuyResidentials({
+export default async function BuyResidentials({
   searchParams,
 }: {
   searchParams: { category?: CategoriesType } | undefined;
@@ -23,5 +23,3 @@ async function BuyResidentials({
   }
   return <BuyResidentialsPage data={data} searchParams={searchParams} />;
 }
-
-export default BuyResidentials;

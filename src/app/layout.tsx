@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import NextTopLoader from "nextjs-toploader";
 import { ReactNode } from "react";
 
-import Layout from "@/components/layout/Layout";
+import { Layout } from "@/components/layout/Layout";
 import NextAuthProvider from "@/providers/NextAuthProvider";
 import { yekan } from "@/utils/fonts";
 

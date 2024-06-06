@@ -1,16 +1,16 @@
-import Sidebar from "@/components/module/Sidebar";
+import { Sidebar } from "@/components/module/Sidebar";
 import { CategoriesType } from "@/constants/strings";
 import { ProfileType } from "@/models/Profile";
 
 import { Card } from "../module/Card";
 
-function BuyResidentialsPage({
+export const BuyResidentialsPage = ({
   data,
   searchParams,
 }: {
   data: ProfileType[];
   searchParams: { category?: CategoriesType } | undefined;
-}) {
+}) => {
   return (
     <div className="flex justify-between mt-20 flex-col lg:flex-row">
       <div className="flex flex-col items-center h-fit px-2 py-4 rounded-xl ml-10 w-[220px] shadow-[#304ffe4a_0px_4px_15px]">
@@ -28,6 +28,4 @@ function BuyResidentialsPage({
       </div>
     </div>
   );
-}
-
-export default BuyResidentialsPage;
+};

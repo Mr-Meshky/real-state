@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
-import DetailsPage from "@/components/template/DetailsPage";
+import { DetailsPage } from "@/components/template/DetailsPage";
 import Profile from "@/models/Profile";
 import connectDB from "@/utils/connectDB";
 
@@ -9,7 +9,7 @@ export interface ProfileDetailsProps {
   params: { profileId: string };
 }
 
-async function ProfileDetails({
+export default async function ProfileDetails({
   params: { profileId },
 }: ProfileDetailsProps): Promise<ReactNode> {
   await connectDB();
@@ -26,8 +26,6 @@ async function ProfileDetails({
 
   return <DetailsPage data={profile} />;
 }
-
-export default ProfileDetails;
 
 export const generateMetadata = async ({
   params: { profileId },

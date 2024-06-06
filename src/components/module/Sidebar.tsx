@@ -6,13 +6,11 @@ import {
   CategoriesType,
 } from "@/constants/strings";
 
-const categories: any[] = Object.keys(mainCategories);
+import { SideBarProps } from "./type";
 
-function Sidebar({
-  searchParams,
-}: {
-  searchParams: { category?: CategoriesType } | undefined;
-}) {
+const categories: [] = Object.keys(mainCategories) as [];
+
+export const Sidebar = ({ searchParams }: SideBarProps) => {
   return (
     <div className="flex flex-col">
       <p className="flex font-noraml text-lg">
@@ -43,6 +41,4 @@ function Sidebar({
       ))}
     </div>
   );
-}
-
-export default Sidebar;
+};

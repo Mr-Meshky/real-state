@@ -1,4 +1,4 @@
-import AddProfilePage from "@/components/template/AddProfilePage";
+import { AddProfilePage } from "@/components/template/AddProfilePage";
 import Profile, { ProfileType } from "@/models/Profile";
 import connectDB from "@/utils/connectDB";
 
@@ -6,7 +6,7 @@ type EditProps = {
   params: { profileId: string };
 };
 
-async function Edit({ params: { profileId } }: EditProps) {
+export default async function Edit({ params: { profileId } }: EditProps) {
   await connectDB();
   let profile: ProfileType;
   try {
@@ -19,5 +19,3 @@ async function Edit({ params: { profileId } }: EditProps) {
 
   return <AddProfilePage data={JSON.parse(JSON.stringify(profile))} />;
 }
-
-export default Edit;

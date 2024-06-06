@@ -9,11 +9,11 @@ import {
   services,
 } from "@/constants/strings";
 
-import CategoryCard from "../module/CategoryCard";
+import { CategoryCard } from "../module/CategoryCard";
 
 const categories: any[] = Object.keys(mainCategories);
 
-function HomePage(): ReactNode {
+export const HomePage = (): ReactNode => {
   return (
     <div>
       <div className="flex justify-center items-center rounded-lg p-5 mt-24 flex-col-reverse lg:flex-row">
@@ -55,6 +55,4 @@ function HomePage(): ReactNode {
       </div>
     </div>
   );
-}
-
-export default HomePage;
+};

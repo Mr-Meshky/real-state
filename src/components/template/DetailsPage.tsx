@@ -8,11 +8,11 @@ import { categories } from "@/constants/strings";
 import { ProfileType } from "@/models/Profile";
 import { englishToPersian, sp } from "@/utils/replaceNumber";
 
-import ItemList from "../module/ItemList";
-import ShareButton from "../module/ShareButton";
-import Title from "../module/Title";
+import { ItemList } from "../module/ItemList";
+import { ShareButton } from "../module/ShareButton";
+import { Title } from "../module/Title";
 
-function DetailsPage({
+export const DetailsPage = ({
   data: {
     title,
     location,
@@ -27,7 +27,7 @@ function DetailsPage({
   },
 }: {
   data: ProfileType;
-}) {
+}) => {
   return (
     <div className="flex mt-14">
       <div className="w-full">
@@ -73,6 +73,4 @@ function DetailsPage({
       </div>
     </div>
   );
-}
-
-export default DetailsPage;
+};

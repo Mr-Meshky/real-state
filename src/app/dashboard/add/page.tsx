@@ -1,9 +1,7 @@
 import { ReactNode } from "react";
 
-import AddProfilePage from "@/components/template/AddProfilePage";
+import { AddProfilePage } from "@/components/template/AddProfilePage";
 
-function AddProfile(): ReactNode {
+export default function AddProfile(): ReactNode {
   return <AddProfilePage />;
 }
-
-export default AddProfile;

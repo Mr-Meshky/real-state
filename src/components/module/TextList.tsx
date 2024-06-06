@@ -1,15 +1,15 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 
-interface TextList {
-  title: string;
-  profileData: any;
-  setProfileData: Dispatch<SetStateAction<any>>;
-  type: "amenities" | "rules";
-}
+import { TextListProps } from "./type";
 
-function TextList({ title, profileData, setProfileData, type }: TextList) {
+export const TextList = ({
+  title,
+  profileData,
+  setProfileData,
+  type,
+}: TextListProps) => {
   const changeHandler = (e: ChangeEvent<HTMLInputElement>, index: number) => {
     const { value } = e.target;
     const list = [...profileData[type]];
@@ -56,6 +56,4 @@ function TextList({ title, profileData, setProfileData, type }: TextList) {
       </button>
     </div>
   );
-}
-
-export default TextList;
+};

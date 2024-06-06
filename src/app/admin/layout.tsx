@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   icons: { icon: "./favicon.ico" },
 };
 
-async function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: ReactNode;
@@ -39,5 +39,3 @@ async function DashboardLayout({
     </DashboardSidebar>
   );
 }
-
-export default DashboardLayout;

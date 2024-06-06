@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "پنل کاربری خانه‌پیدا",
 };
 
-async function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: ReactNode;
@@ -35,5 +35,3 @@ async function DashboardLayout({
     </DashboardSidebar>
   );
 }
-
-export default DashboardLayout;

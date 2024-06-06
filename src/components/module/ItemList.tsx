@@ -1,4 +1,4 @@
-function ItemList({ data }: { data: string[] | undefined }) {
+export const ItemList = ({ data }: { data: string[] | undefined }) => {
   return (
     <div>
       {data?.length ? (
@@ -14,6 +14,4 @@ function ItemList({ data }: { data: string[] | undefined }) {
       )}
     </div>
   );
-}
-
-export default ItemList;
+};

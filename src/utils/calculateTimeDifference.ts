@@ -1,34 +1,21 @@
-export const calculateTimeDifference = (previousDate: string | Date) => {
-  const prevDate: Date = new Date(previousDate);
+export const calculateTimeDifference = (timestamp: string | Date) => {
+  const now = new Date();
+  const secondsPast = (now.getTime() - new Date(timestamp).getTime()) / 1000;
 
-  let currentDate: Date = new Date();
-
-  let secondsPassed: number = Math.floor(
-    (currentDate.getTime() - prevDate.getTime()) / 1000
-  );
-
-  let days = Math.floor(secondsPassed / (3600 * 24));
-  secondsPassed -= days * 3600 * 24;
-
-  let hours = Math.floor(secondsPassed / 3600);
-  secondsPassed -= hours * 3600;
-
-  let minutes = Math.floor(secondsPassed / 60);
-  secondsPassed -= minutes * 60;
-
-  let seconds = secondsPassed;
-
-  if (!!days) {
-    if (days > 30) {
-      return `${days} days`;
-    } else {
-      return `${days} days, ${hours} hours`;
-    }
-  } else if (!!hours) {
-    return `${hours} hours, ${minutes} minutes`;
-  } else if (!!minutes) {
-    return `${minutes} minutes, ${seconds} seconds`;
-  } else {
-    return `${seconds} seconds`;
+  if (secondsPast < 60) {
+    return `${Math.floor(secondsPast)} seconds ago`;
   }
+  if (secondsPast < 3600) {
+    return `${Math.floor(secondsPast / 60)} minutes ago`;
+  }
+  if (secondsPast < 86400) {
+    return `${Math.floor(secondsPast / 3600)} hours ago`;
+  }
+  if (secondsPast < 2592000) {
+    return `${Math.floor(secondsPast / 86400)} days ago`;
+  }
+  if (secondsPast < 31536000) {
+    return `${Math.floor(secondsPast / 2592000)} months ago`;
+  }
+  return `${Math.floor(secondsPast / 31536000)} years ago`;
 };

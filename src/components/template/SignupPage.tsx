@@ -8,15 +8,10 @@ import { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast, Toaster } from "react-hot-toast";
 
-import Loader from "../module/Loader";
+import { Loader } from "../module/Loader";
+import { Inputs } from "./type";
 
-interface Inputs {
-  email: string;
-  password: string;
-  rePassword?: string;
-}
-
-function SignupPage(): ReactNode {
+export const SignupPage = (): ReactNode => {
   const [loading, setLoading]: [boolean, Dispatch<SetStateAction<boolean>>] =
     useState(false);
 
@@ -128,6 +123,4 @@ function SignupPage(): ReactNode {
       <Toaster />
     </div>
   );
-}
-
-export default SignupPage;
+};
